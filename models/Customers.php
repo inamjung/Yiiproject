@@ -49,7 +49,7 @@ class Customers extends \yii\db\ActiveRecord
             [['birthday', 'createdate', 'updatedate'], 'safe'],
             [['name'], 'string', 'max' => 150],
             [['addr', 'fb', 'line', 'email'], 'string', 'max' => 100],
-            [['cid'], 'string', 'max' => 13],
+            [['cid'], 'string', 'max' => 17],
             [['p', 'tel', 'work', 'position_id', 'interest', 'avatar'], 'string', 'max' => 255],
         ];
     }
@@ -82,5 +82,20 @@ class Customers extends \yii\db\ActiveRecord
             'createdate' => 'Createdate',
             'updatedate' => 'วันที่แก้ไข',
         ];
+    }
+    public function getCuschw(){
+        return $this->hasOne(Chw::className(), ['id'=>'c']);
+    }
+    public function getCusamp(){
+        return $this->hasOne(Amp::className(), ['id'=>'a']);
+    }
+    public function getCustmb(){
+        return $this->hasOne(Tmb::className(), ['id'=>'t']);
+    }
+    public function getPos(){
+        return $this->hasOne(Positions::className(), ['id'=>'position_id']);
+    }
+    public function getCusdep(){
+        return $this->hasOne(Departments::className(), ['id'=>'department_id']);
     }
 }

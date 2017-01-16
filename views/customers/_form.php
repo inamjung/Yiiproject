@@ -20,12 +20,21 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-3 col-sm-3 col-md-3">
-            <?= $form->field($model, 'c')->textInput() ?>
+         <div class="col-xs-3 col-sm-3 col-md-3">
+            <?= $form->field($model, 'c')->widget(kartik\widgets\Select2::className(),[
+                'data'=>  \yii\helpers\ArrayHelper::map(\app\models\Chw::find()->all(), 'id', 'name'),
+                'options'=>[
+                    'placeholder'=>'<-- ระบุจังหวัด -->'
+                ],
+                'pluginOptions'=>[
+                    'allowClear'=>true
+                ]
+            ]) ?>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
             <?= $form->field($model, 'a')->textInput() ?>
         </div>
+       
         <div class="col-xs-3 col-sm-3 col-md-3">
             <?= $form->field($model, 't')->textInput() ?>            
         </div>
@@ -35,13 +44,25 @@ use yii\widgets\ActiveForm;
   </div> 
 <div class="row">
         <div class="col-xs-4 col-sm-4 col-md-4">
-             <?= $form->field($model, 'birthday')->textInput() ?>
+             <?= $form->field($model, 'birthday')->widget(yii\jui\DatePicker::className(),[
+                 'language'=>'th',
+                 'dateFormat'=>'yyyy-MM-dd',
+                 'clientOptions'=>[
+                     'changeMonth'=>true,
+                     'changeYear'=>true
+                 ],
+                 'options'=>['class'=>'form-control']
+             ]) ?>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4">
-            <?= $form->field($model, 'cid')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'cid')->widget(yii\widgets\MaskedInput::className(),[
+                'mask'=>'9-9999-99999-99-9'
+            ]) ?>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4">
-            <?= $form->field($model, 'tel')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'tel')->widget(yii\widgets\MaskedInput::className(),[
+                'mask'=>'999-999-9999'
+            ]) ?>
         </div>
   </div> 
     <div class="row">
@@ -49,10 +70,26 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'work')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
-            <?= $form->field($model, 'position_id')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'position_id')->widget(kartik\widgets\Select2::className(),[
+                'data'=> \yii\helpers\ArrayHelper::map(app\models\Positions::find()->all(), 'id', 'name'),
+                'options'=>[
+                    'placeholder'=>'<-- ระบุตำแหน่ง -->'
+                ],
+                'pluginOptions'=>[
+                    'allowClear'=>true
+                ]
+            ]) ?>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
-             <?= $form->field($model, 'group_id')->textInput() ?>
+             <?= $form->field($model, 'group_id')->widget(kartik\widgets\Select2::className(),[
+                 'data'=>  \yii\helpers\ArrayHelper::map(\app\models\Groups::find()->all(), 'id','name' ),
+                 'options'=>[
+                    'placeholder'=>'<-- ระบุกลุ่มงาน -->'
+                ],
+                'pluginOptions'=>[
+                    'allowClear'=>true
+                ]
+             ]) ?>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
             <?= $form->field($model, 'department_id')->textInput() ?>
