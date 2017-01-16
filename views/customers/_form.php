@@ -2,6 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\widgets\DepDrop;
+use kartik\widgets\Select2;
+use yii\helpers\Url;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Customers */
@@ -32,11 +36,35 @@ use yii\widgets\ActiveForm;
             ]) ?>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
-            <?= $form->field($model, 'a')->textInput() ?>
-        </div>
-       
+            <?=
+            $form->field($model, 'a')->widget(DepDrop::className(), [
+                        'data' => [$ch],
+                        'options' => ['placeholder' => '<--เลือกอำเภอ-->'],
+                        'type' => DepDrop::TYPE_SELECT2,
+                        'select2Options' => ['pluginOptions' => ['allowClear' => true]],
+                        'pluginOptions' => [
+                            'depends' => ['customers-c'],            
+                            'url' => yii\helpers\Url::to(['/customers/get-ch']),
+                            'loadingText' => 'Loading1...',
+                        ],
+                    ]);
+            ?>
+        </div>       
         <div class="col-xs-3 col-sm-3 col-md-3">
-            <?= $form->field($model, 't')->textInput() ?>            
+            <?=
+            $form->field($model, 't')->widget(DepDrop::className(), [
+                        'data' => [$am],
+                        'options' => ['placeholder' => '<--คลิกเลือกตำบล-->',                            
+                            ],                        
+                        'type' => DepDrop::TYPE_SELECT2,
+                        'select2Options' => ['pluginOptions' => ['allowClear' => true]],
+                        'pluginOptions' => [
+                            'depends' => ['customers-c', 'customers-a'],            
+                            'url' => yii\helpers\Url::to(['customers/get-am']),
+                            'loadingText' => 'Loading2...',
+                        ],
+                    ]);
+            ?>         
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
             <?= $form->field($model, 'p')->textInput(['maxlength' => true]) ?>
