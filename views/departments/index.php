@@ -21,25 +21,25 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="panel panel-info">
         <div class="panel-heading"> หน่วยงาน</div>
         <div class="panel-body">
-            <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-           // 'id',
-            'name',
-            'group_id',
-            'depgroup.name',
-           [
-               'attribute'=>'group_id',
-               'value'=>'depgroup.name',
-           ],
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+            <?=
+            GridView::widget([
+                'dataProvider' => $dataProvider,
+                'filterModel' => $searchModel,
+                'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
+                    // 'id',
+                    'name',
+                    'group_id',
+                    'depgroup.name',
+                    [
+                        'attribute' => 'group_id',
+                        'value' => 'depgroup.name',
+                    ],
+                    ['class' => 'yii\grid\ActionColumn'],
+                ],
+            ]);
+            ?>
         </div>
     </div>
-    
+
 </div>
