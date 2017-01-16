@@ -70,7 +70,13 @@ class CustomersController extends Controller {
     public function actionCreate() {
         $model = new Customers();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+       if ($model->load(Yii::$app->request->post())) {
+            $file = UploadedFile::getInstance($model,'avatar_img');             
+             if(isset($file->size) && $file->size!=0){
+                $model->avatar = $file->name;
+                $file->saveAs('avatars/'.$file->name);                   
+                }            
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -90,8 +96,16 @@ class CustomersController extends Controller {
         $ch = ArrayHelper::map($this->getCh($model->c), 'id', 'name');
         $am = ArrayHelper::map($this->getAm($model->a), 'id', 'name');
         $depart = ArrayHelper::map($this->getDepart($model->group_id), 'id', 'name');
+        
+         $model->interest  = $model->getArray($model->interest);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+       if ($model->load(Yii::$app->request->post())) {
+            $file = UploadedFile::getInstance($model,'avatar_img');             
+             if(isset($file->size) && $file->size!=0){
+                $model->avatar = $file->name;
+                $file->saveAs('avatars/'.$file->name);                   
+                }            
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

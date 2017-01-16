@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-
+<?= Html::img('avatars/'.$model->avatar,['class'=>'thumbnail img-responsive','style'=>'width: 50 px;'])?>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -61,15 +61,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>$model->pos->name
             ],
             
-            
-            'position_id',
-            'interest',
-            'avatar',
+            'interest',           
             'fb',
             'line',
             'email:email',
-            'createdate',
-            'updatedate',
+//            'createdate',
+//            'updatedate',
         ],
     ]) ?>
 
