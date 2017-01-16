@@ -30,20 +30,38 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'addr',           
+            'addr', 
+            [
+                'attribute'=>'c',
+                'value'=>$model->cuschw->name
+            ],
+            [
+                'attribute'=>'a',
+                'value'=>$model->cusamp->name
+            ],
             [
                 'attribute'=>'t',
                 'value'=>$model->custmb->name
-            ],
-            'a',
-            'c',
+            ],            
             'birthday',
             'cid',
             'p',
             'tel',
             'work',
-            'department_id',
-            'group_id',
+             [
+                'attribute'=>'group_id',
+                'value'=>$model->cusdep->depgroup->name
+            ],
+            [
+                'attribute'=>'department_id',
+                'value'=>$model->cusdep->name
+            ],
+            [
+                'attribute'=>'position_id',
+                'value'=>$model->pos->name
+            ],
+            
+            
             'position_id',
             'interest',
             'avatar',
