@@ -12,10 +12,14 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="customers-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
+   <div class="panel panel-primary">
+        <div class="panel-heading"><h4><i class="glyphicon glyphicon-pencil"></i> บันทึกข้อมูลพนักงาน</h4></div>
+        <div class="panel-body">
+            <?=
+            $this->render('_form', [
+                'model' => $model,
+            ])
+            ?>
+        </div>
+    </div>
 </div>

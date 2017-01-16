@@ -70,17 +70,17 @@ class Customers extends \yii\db\ActiveRecord
             'cid' => 'เลขบัตร ปชช.',
             'p' => 'รหัสไปรษณย์',
             'tel' => 'โทรศัพท์',
-            'work' => 'l5komujme\'ko',
+            'work' => 'งานที่ทำ',
             'department_id' => 'แผนก',
             'group_id' => 'กลุ่มงาน',
             'position_id' => 'ตำแหน่ง',
             'interest' => 'ความสนใจ',
-            'avatar' => 'รูปถ่ายหลักฐาน',
+            'avatar' => 'รูปประจำตัว',
             'fb' => 'Facebook',
             'line' => 'Line',
             'email' => 'Email',
             'createdate' => 'Createdate',
-            'updatedate' => 'วันที่ชำระ',
+            'updatedate' => 'วันที่แก้ไข',
         ];
     }
 }
