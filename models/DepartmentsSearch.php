@@ -18,8 +18,8 @@ class DepartmentsSearch extends Departments
     public function rules()
     {
         return [
-            [['id', 'group_id'], 'integer'],
-            [['name'], 'safe'],
+            [['id'], 'integer'],
+            [['name','group_id'], 'safe'],
         ];
     }
 
@@ -58,12 +58,15 @@ class DepartmentsSearch extends Departments
         }
 
         // grid filtering conditions
+        $dataProvider->query->joinWith('depgroup');
         $query->andFilterWhere([
             'id' => $this->id,
-            'group_id' => $this->group_id,
+            //'group_id' => $this->group_id,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+                ->andFilterWhere(['like', 'groups.name', $this->group_id])
+                ;
 
         return $dataProvider;
     }

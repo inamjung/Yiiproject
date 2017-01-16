@@ -43,4 +43,8 @@ class Departments extends \yii\db\ActiveRecord
             'group_id' => 'กลุ่มงาน',
         ];
     }
+    
+    public function getDepgroup(){
+        return $this->hasOne(Groups::className(), ['id'=>'group_id']);
+    }
 }

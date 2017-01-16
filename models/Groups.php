@@ -40,4 +40,7 @@ class Groups extends \yii\db\ActiveRecord
             'name' => 'กลุ่มงาน',
         ];
     }
+    public function getGroupdep(){
+        return $this->hasMany(Departments::className(), ['group_id'=>'id']);
+    }
 }
