@@ -24,7 +24,10 @@
         "kartik-v/yii2-grid": "@dev",
         "kartik-v/yii2-mpdf": "dev-master",
         "kartik-v/yii2-checkbox-x": "*",
-        "dmstr/yii2-adminlte-asset": "2.*"
+        "dmstr/yii2-adminlte-asset": "2.*",
+        "dektrium/yii2-user": "^0.9.12",
+        "dektrium/yii2-rbac": "1.0.0-alpha@dev",
+        "mdmsoft/yii2-admin": "~2.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
