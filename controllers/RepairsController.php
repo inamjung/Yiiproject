@@ -8,6 +8,9 @@ use app\models\RepairsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\Json;
+use kartik\widgets\DepDrop;
+use yii\helpers\ArrayHelper;
 
 /**
  * RepairsController implements the CRUD actions for Repairs model.
@@ -76,6 +79,8 @@ class RepairsController extends Controller
     public function actionCreateuser()
     {
         $model = new Repairs();
+        $model->user_id = Yii::$app->user->identity->id;
+        $model->createDate = date('Y-m-d');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -107,7 +112,7 @@ class RepairsController extends Controller
     public function actionUpdateuser($id)
     {
         $model = $this->findModel($id);
-        $tool = ArrayHelper::map($this->getTool($model->c), 'id', 'name');
+        $tool = ArrayHelper::map($this->getTool($model->department_id), 'id', 'name');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

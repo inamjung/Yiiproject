@@ -73,4 +73,10 @@ class Repairs extends \yii\db\ActiveRecord
             'engineer_id' => 'ช่าง',
         ];
     }
+    public function getRepairtool(){
+        return $this->hasOne(Tools::className(), ['id'=>'tool_id']);
+    }
+    public function getRepairdep(){
+        return $this->hasOne(Departments::className(), ['id'=>'department_id']);
+    }
 }
