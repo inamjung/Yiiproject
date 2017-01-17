@@ -8,6 +8,7 @@ use app\models\ToolsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ToolsController implements the CRUD actions for Tools model.
@@ -65,7 +66,13 @@ class ToolsController extends Controller
     {
         $model = new Tools();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+       if ($model->load(Yii::$app->request->post())) {
+            $file = UploadedFile::getInstance($model,'tool_img');             
+             if(isset($file->size) && $file->size!=0){
+                $model->picture = $file->name;
+                $file->saveAs('toolpicture/'.$file->name);                   
+                }            
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -84,7 +91,13 @@ class ToolsController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $file = UploadedFile::getInstance($model,'tool_img');             
+             if(isset($file->size) && $file->size!=0){
+                $model->picture = $file->name;
+                $file->saveAs('toolpicture/'.$file->name);                   
+                }            
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

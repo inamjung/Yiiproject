@@ -28,7 +28,15 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
            // 'id',
-             'picture',   
+            
+             [
+               'attribute'=> 'picture',  
+              'format' => 'html',
+                'value' => function($model) {
+                    return html::img('toolpicture/' . $model->picture, ['class' => 'thumbnail-responsive',
+                                'style' => 'width: 80px;']);
+                }                    
+            ],
             [
                'attribute'=>'name',
                'contentOptions'=>['class'=>'text-left','style'=>'width:210px;']
@@ -96,14 +104,31 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php
 
 function DateThai($strDate)
-	{
-		$strYear = date("Y",strtotime($strDate))+543;
-		$strMonth= date("n",strtotime($strDate));
-		$strDay= date("j",strtotime($strDate));
-		$strMonthCut = Array("","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
-		$strMonthThai=$strMonthCut[$strMonth];
-		$strYear=substr($strYear,2,2);
-		return "$strDay $strMonthThai $strYear";
+	
+{
+	//echo $strDate;
+	if(empty($strDate) || $strDate=='0000-00-00'){
+		$strDate=date('Y-m-d');
+
 	}
+	if(count(explode(" ",$strDate)) >1){
+		$d = explode(" ",$strDate);
+		$d2 = explode("-", $d['0']);
+
+	}else{
+		$d2 = explode("-", $strDate);
+	}
+	
+
+	date_default_timezone_set('Asia/Bangkok');
+
+	$strYear = date("Y",strtotime($strDate))+543;
+	$strMonth= $d2[1];//date("n",strtotime($strDate));
+	$strDay= $d2[2];//date("j",strtotime($strDate));
+
+	$strMonthCut = Array("มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
+	$strMonthThai=$strMonthCut[$strMonth-1];
+	return "$strDay $strMonthThai $strYear";
+}
        // echo DateThai(date('Y-m-d'));
 ?>             

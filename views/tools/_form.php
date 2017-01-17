@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\checkbox\CheckboxX;
+use yii\web\UploadedFile;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Tools */
@@ -11,7 +12,10 @@ use kartik\checkbox\CheckboxX;
 
 <div class="tools-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(
+            ['options'=>[
+        'enctype'=>'multipart/form-data'
+    ]]); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
@@ -70,10 +74,21 @@ use kartik\checkbox\CheckboxX;
                  ],
                  'options'=>['class'=>'form-control']
              ]) ?>
-
     <?= $form->field($model, 'use')->widget(CheckboxX::classname(), [
                                 'pluginOptions' => ['threeState' => false],
                             ]); ?>
+   
+     <hr>
+            <?= $form->field($model, 'tool_img')->label('รูปภาพ')->fileInput() ?>       
+       
+       
+    <?php if ($model->picture) { ?>
+        <?= Html::img('toolpicture/' . $model->picture, ['class' => 'img-responsive img-circle', 'width' => '150px;']); ?>
+    <?php } ?> 
+    
+   
+
+    
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-
+<?= Html::img('toolpicture/'.$model->picture,['class'=>'thumbnail img-responsive','style'=>'width: 50 px;'])?>
     <?= DetailView::widget([
         'model' => $model,
         'formatter'=>['class'=>'yii\i18n\Formatter','nullDisplay'=>'-'],

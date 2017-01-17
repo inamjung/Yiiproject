@@ -23,6 +23,7 @@ class Tools extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public $tool_img;
     public static function tableName()
     {
         return 'tools';
@@ -38,6 +39,7 @@ class Tools extends \yii\db\ActiveRecord
             [['price'], 'number'],
             [['buy_date', 'exp_date'], 'safe'],
             [['name', 'picture'], 'string', 'max' => 255],
+            [['tool_img'],'file','skipOnEmpty'=>true,'on'=>'update','extensions'=>'jpg,png']
         ];
     }
 
