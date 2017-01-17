@@ -38,12 +38,12 @@
                             <span><i class="fa fa-circle text-yellow"></i> พนักงาน</span>                        
                         </a>                        
                     </li>
-                    <li><a href="<?php echo yii\helpers\Url::to(['repairs/index'])?>"> 
-                            <span><i class="fa fa-circle text-yellow"></i> ส่งซ่อม</span>                        
+                    <li><a href="<?php echo yii\helpers\Url::to(['repairs/indexuser'])?>"> 
+                            <span><i class="fa fa-circle text-blue"></i> ส่งซ่อม</span>                        
                         </a>                        
                     </li>
                     <li><a href="<?php echo yii\helpers\Url::to(['repairs/index'])?>"> 
-                            <span><i class="fa fa-circle text-yellow"></i> รับซ่อม</span>                        
+                            <span><i class="fa fa-circle text-red"></i> รับซ่อม</span>                        
                         </a>                        
                     </li>
                 </ul>

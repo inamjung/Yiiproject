@@ -51,7 +51,29 @@ $this->params['breadcrumbs'][] = $this->title;
                     // 'updateDate',
                     // 'approve',
                     // 'engineer_id',
-                    ['class' => 'yii\grid\ActionColumn'],
+                   // ['class' => 'yii\grid\ActionColumn'],
+                    [
+                'class' => 'yii\grid\ActionColumn',
+                'options'=>['style'=>'width:80px;'],
+                'template'=>'<div class="btn-group btn-group-sm" role="group" aria-label="...">{view}{update}</div>',                
+                'buttons'=>[                    
+                    'view'=>function($url,$model,$key){
+                        return Html::a('<i class="glyphicon glyphicon-search"></i> ',$url);
+                    }, 
+                    'update'=>function($url,$model,$key){
+                        return Html::a('<i class="glyphicon glyphicon-edit"> </i>',['updateuser','id'=>$model->id]);
+                    },
+//                    'delete'=>function($url,$model,$key){
+//                         return Html::a('<i class="glyphicon glyphicon-trash"></i>', $url,[
+//                                'title' => Yii::t('yii', 'Delete'),
+//                                'data-confirm' => Yii::t('yii', 'คุณต้องการลบไฟล์นี้?'),
+//                                'data-method' => 'post',
+//                                'data-pjax' => '0',
+//                                'class'=>'btn btn-default'
+//                                ]);
+//                    }
+                ]
+            ],     
                 ],
             ]);
             ?>
