@@ -38,10 +38,21 @@ class RepairsController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new RepairsSearch();
+        $searchModel = new RepairsSearch(['satatus'=>'รอรับงาน']);
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionIndexok()
+    {
+        $searchModel = new RepairsSearch(['satatus'=>'รับงานแล้ว']);
+        $searchModel->answer = 'ซ่อมเสร็จแล้ว';
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('indexok', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);

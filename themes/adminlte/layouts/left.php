@@ -46,6 +46,10 @@
                             <span><i class="fa fa-circle text-red"></i> รับซ่อม</span>                        
                         </a>                        
                     </li>
+                     <li><a href="<?php echo yii\helpers\Url::to(['repairs/indexok'])?>"> 
+                            <span><i class="fa fa-circle text-green"></i> ซ่อมได้</span>                        
+                        </a>                        
+                    </li>
                 </ul>
                </li>    
             </ul>
