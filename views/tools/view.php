@@ -50,7 +50,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'buy_date',
             'picture',
             'exp_date',
-            'use',
+             [
+                'attribute'=>'use',
+                'format'=>'html',
+                //'value'=>$model->use =='1' ? "ใช้งานอยู่" : "แทงจำหน่าย",
+                'value'=>$model->use =='1' ? "<i class=\"glyphicon glyphicon-ok\"></i>" : "<i class=\"glyphicon glyphicon-remove\"></i>"
+            ],
+            
         ],
     ]) ?>
 
