@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\bootstrap\Nav;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -14,6 +15,17 @@ use yii\helpers\Html;
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
         </a>
+        <?php
+            echo Nav::widget([
+                'options' => ['class' => 'navbar-nav navbar-right',
+                    'encodeLabels'=>false
+                    ],
+                'items' => [  
+                    ['label' => ' เข้าสู่ระบบ', 'url' => ['/user/security/login'], 'visible' => Yii::$app->user->isGuest],
+                    //['label' => ' สมัครใช้งาน', 'url' => ['/user/registration/register'], 'visible' => Yii::$app->user->isGuest],
+                ],
+            ]);        
+        ?>
 
         <div class="navbar-custom-menu">
 
