@@ -67,9 +67,9 @@
                </li>    
             </ul>
         <ul class="sidebar-menu">
-                <li class="treeview active">
+                <li class="treeview">
                     <a href="#">
-                        <i class="glyphicon glyphicon-cog"><span> รายงานความเสี่ยง</span></i>
+                        <i class="glyphicon glyphicon-cog"><span> ตั้งค่าระบบรายงานความเสี่ยง</span></i>
                         <i class="fa pull-right fa-angle-down"></i>
                     </a>               
                 <ul class="treeview-menu">                    
@@ -89,6 +89,25 @@
                             <span><i class="fa fa-circle text-blue"></i> รายการ</span>                        
                         </a>                        
                     </li>
+                </ul>
+               </li>    
+            </ul>
+        <ul class="sidebar-menu">
+                <li class="treeview active">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-cog"><span> รายงานความเสี่ยง</span></i>
+                        <i class="fa pull-right fa-angle-down"></i>
+                    </a>               
+                <ul class="treeview-menu">                    
+                    <li><a href="<?php echo yii\helpers\Url::to(['/risk/riskreports/indexuser'])?>"> 
+                            <span><i class="fa fa-circle text-green"></i> รายงานความเสี่ยง</span>                        
+                        </a>                        
+                    </li>
+                    <li><a href="<?php echo yii\helpers\Url::to(['/risk/riskreports/indexadmin'])?>"> 
+                            <span><i class="fa fa-circle text-green"></i> รัยรายงานความเสี่ยง</span>                        
+                        </a>                        
+                    </li>
+                     
                 </ul>
                </li>    
             </ul>

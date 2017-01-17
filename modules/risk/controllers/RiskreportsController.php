@@ -43,6 +43,26 @@ class RiskreportsController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    public function actionIndexuser()
+    {
+        $searchModel = new RiskreportsSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('indexuser', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionIndexadmin()
+    {
+        $searchModel = new RiskreportsSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('indexadmin', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 
     /**
      * Displays a single Riskreports model.
