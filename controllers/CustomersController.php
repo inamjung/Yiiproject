@@ -207,4 +207,5 @@ public function actionGetDepart(){
         $datas = \app\models\Departments::find()->where(['group_id'=>$id])->all();
         return $this->MapData($datas,'id','name');
     }
+    
 }

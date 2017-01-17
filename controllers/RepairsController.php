@@ -73,6 +73,18 @@ class RepairsController extends Controller
             ]);
         }
     }
+    public function actionCreateuser()
+    {
+        $model = new Repairs();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('createuser', [
+                'model' => $model,
+            ]);
+        }
+    }
 
     /**
      * Updates an existing Repairs model.
@@ -89,6 +101,20 @@ class RepairsController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
+            ]);
+        }
+    }
+    public function actionUpdateuser($id)
+    {
+        $model = $this->findModel($id);
+        $tool = ArrayHelper::map($this->getTool($model->c), 'id', 'name');
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('updateuser', [
+                'model' => $model,
+                'tool'=>$tool
             ]);
         }
     }
@@ -120,5 +146,29 @@ class RepairsController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+    protected function MapData($datas,$fieldID,$fieldName){
+        $obj = [];
+        foreach ($datas as $key => $value){
+            array_push($obj, ['id'=>$value->{$fieldID},'name'=>$value->{$fieldName}]);
+        }
+        return $obj;
+    }
+    public function actionGetTool(){
+        $out = [];
+        if (isset($_POST['depdrop_parents'])){
+            $parents = $_POST['depdrop_parents'];
+            if ($parents != NULL){
+                $department_id = $parents[0];
+                $out = $this->getTool($department_id);
+                echo Json::encode(['output'=>$out, 'selected'=>'']);
+                return;
+            }
+        }
+        echo Json::encode(['output'=>'', 'selected'=>'']);
+    }   
+    protected function getTool($id){
+        $datas = \app\models\Tools::find()->where(['department_id'=>$id])->all();
+        return $this->MapData($datas,'id','name');
     }
 }

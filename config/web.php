@@ -5,6 +5,7 @@ $params = require(__DIR__ . '/params.php');
 $config = [
     'id' => 'basic',
     'language'=>'th_TH',
+    'name'=>'<img style="height:40px; margin-top:1px;" src="./img/logo.png"> My-Project',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
