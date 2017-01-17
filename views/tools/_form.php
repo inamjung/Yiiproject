@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use 
+use kartik\checkbox\CheckboxX;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Tools */

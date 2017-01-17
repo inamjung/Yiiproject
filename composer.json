@@ -22,7 +22,8 @@
         "kartik-v/yii2-widgets": "*",
         "kartik-v/yii2-krajee-base": "dev-master",
         "kartik-v/yii2-grid": "@dev",
-        "kartik-v/yii2-mpdf": "dev-master"
+        "kartik-v/yii2-mpdf": "dev-master",
+        "kartik-v/yii2-checkbox-x": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
