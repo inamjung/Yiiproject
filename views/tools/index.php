@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ToolsSearch */
@@ -20,6 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        'formatter'=>['class'=>'yii\i18n\Formatter','nullDisplay'=>'-'],
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
@@ -42,11 +43,11 @@ $this->params['breadcrumbs'][] = $this->title;
             
             
             
-            // 'price',
-            // 'buy_date',
-            // 'picture',
-            // 'exp_date',
-            // 'use',
+             'price',
+             'buy_date',
+             'picture',
+             'exp_date',
+             'use',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -27,12 +27,25 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= DetailView::widget([
         'model' => $model,
+        'formatter'=>['class'=>'yii\i18n\Formatter','nullDisplay'=>'-'],
         'attributes' => [
-            'id',
+            //'id',
             'name',
-            'company_id',
-            'tooltype_id',
-            'department_id',
+            
+            [
+                'attribute'=>'company_id',
+                'value'=>$model->company->name
+            ],
+            [
+                'attribute'=>'tooltype_id',
+                'value'=>$model->tooltype->name
+            ],
+            [
+                'attribute'=>'department_id',
+                'value'=>$model->tooldep->name
+            ],
+            
+            
             'price',
             'buy_date',
             'picture',
