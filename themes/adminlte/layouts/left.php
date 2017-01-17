@@ -3,6 +3,7 @@
     <section class="sidebar">
 
         <!-- Sidebar user panel -->
+       <?php if (!Yii::$app->user->isGuest) { ?>
         <div class="user-panel">
             <div class="pull-left image">
                 <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
@@ -42,6 +43,7 @@
                </li>    
             </ul>
         <?php }?> 
+         <?php }?>
         <ul class="sidebar-menu">
                 <li class="treeview active">
                     <a href="#">

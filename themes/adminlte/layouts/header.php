@@ -19,7 +19,7 @@ use yii\helpers\Html;
 
             <ul class="nav navbar-nav">
 
-                
+                <?php if (!Yii::$app->user->isGuest) { ?>
 
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -51,6 +51,7 @@ use yii\helpers\Html;
                         </li>
                     </ul>
                 </li>
+                <?php }?>
 
                 <!-- User Account: style can be found in dropdown.less -->
 <!--                <li>
