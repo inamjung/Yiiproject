@@ -81,7 +81,7 @@ $config = [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
-            /*
+         
              'admin/*',
             'user/*',
             'groups/*',
@@ -91,9 +91,8 @@ $config = [
             'tools/*',
             'tooltypes',
             'positions/*',
-            'some-controller/some-action',    
-             * /*
-             */        
+            'technicians/*',
+            'some-controller/some-action',   
         ]
     ],
     'params' => $params,

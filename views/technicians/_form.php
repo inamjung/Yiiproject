@@ -13,7 +13,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'user_id')->widget(kartik\widgets\Select2::className(),[
-        'data'=>  \yii\helpers\ArrayHelper::map(\app\models\Customers::find()->all(), 'id', 'name'),
+        'data'=>  \yii\helpers\ArrayHelper::map(dektrium\user\models\User::find()->all(), 'id', 'name'),
         'options'=>[
             'placeholder'=>'<--ระบุรายชื่อ--->'
         ],
