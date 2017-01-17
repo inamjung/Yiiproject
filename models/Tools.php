@@ -59,4 +59,13 @@ class Tools extends \yii\db\ActiveRecord
             'use' => 'ใช้/ไม่ใช้',
         ];
     }
+    public function getTooltype(){
+        return $this->hasOne(Tooltypes::className(), ['id'=>'tooltype_id']);
+    }
+    public function getCompany(){
+        return $this->hasOne(Companys::className(), ['id'=>'company_id']);
+    }
+    public function getTooldep(){
+        return $this->hasOne(Departments::className(), ['id'=>'department_id']);
+    }
 }

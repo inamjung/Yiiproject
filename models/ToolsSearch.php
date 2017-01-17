@@ -18,8 +18,8 @@ class ToolsSearch extends Tools
     public function rules()
     {
         return [
-            [['id', 'company_id', 'tooltype_id', 'department_id', 'use'], 'integer'],
-            [['name', 'buy_date', 'picture', 'exp_date'], 'safe'],
+            [['id', 'use'], 'integer'],
+            [['name', 'buy_date', 'picture', 'exp_date','company_id', 'tooltype_id', 'department_id', ], 'safe'],
             [['price'], 'number'],
         ];
     }
@@ -59,11 +59,15 @@ class ToolsSearch extends Tools
         }
 
         // grid filtering conditions
+        $dataProvider->query->joinWith('tooltype');
+        $dataProvider->query->joinWith('company');
+        $dataProvider->query->joinWith('tooldep');
+        
         $query->andFilterWhere([
             'id' => $this->id,
-            'company_id' => $this->company_id,
-            'tooltype_id' => $this->tooltype_id,
-            'department_id' => $this->department_id,
+//            'company_id' => $this->company_id,
+//            'tooltype_id' => $this->tooltype_id,
+//            'department_id' => $this->department_id,
             'price' => $this->price,
             'buy_date' => $this->buy_date,
             'exp_date' => $this->exp_date,
@@ -71,7 +75,10 @@ class ToolsSearch extends Tools
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'picture', $this->picture]);
+            ->andFilterWhere(['like', 'picture', $this->picture])
+        ->andFilterWhere(['like', 'companys.name', $this->company_id])
+        ->andFilterWhere(['like', 'tooltypes.name', $this->tooltype_id])
+        ->andFilterWhere(['like', 'departments.name', $this->department_id]);
 
         return $dataProvider;
     }
