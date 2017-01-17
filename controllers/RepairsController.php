@@ -46,6 +46,17 @@ class RepairsController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    public function actionIndexuser()
+    {
+        $searchModel = new RepairsSearch();
+        $searchModel->department_id = Yii::$app->user->identity->department_id;
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('indexuser', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 
     /**
      * Displays a single Repairs model.
