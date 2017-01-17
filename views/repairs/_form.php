@@ -71,8 +71,7 @@ use kartik\widgets\DepDrop;
                      'changeMonth'=>true,
                      'changeYear'=>true
                  ],
-                 'options'=>['class'=>'form-control',
-                     'disabled'=>true
+                 'options'=>['class'=>'form-control',                     
                      ]
              ]) ?>
 
@@ -85,8 +84,7 @@ use kartik\widgets\DepDrop;
                      'changeMonth'=>true,
                      'changeYear'=>true
                  ],
-                 'options'=>['class'=>'form-control',
-                     'disabled'=>true
+                 'options'=>['class'=>'form-control',                     
                      ]
              ]) ?>
 
@@ -101,8 +99,7 @@ use kartik\widgets\DepDrop;
                      'changeMonth'=>true,
                      'changeYear'=>true
                  ],
-                 'options'=>['class'=>'form-control',
-                     'disabled'=>true
+                 'options'=>['class'=>'form-control',                     
                      ]
              ]) ?>
 
