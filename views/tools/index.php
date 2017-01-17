@@ -44,14 +44,21 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute'=>'department_id',
                 'value'=>'tooldep.name'
-            ],
-            
-            
-            
+            ],            
              'price',
-             'buy_date',
-             'picture',
-             'exp_date',
+            [
+                'attribute'=>'buy_date',
+                'value'=>function($model){
+                    return DateThai($model->buy_date);
+                }
+            ],             
+             'picture',             
+            [
+                'attribute'=>'exp_date',
+                'value'=>function($model){
+                    return DateThai($model->exp_date);
+                }
+            ],
              [
                     'class' => 'kartik\grid\BooleanColumn',
                     'attribute' => 'use',
@@ -85,3 +92,18 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 </div>
+
+<?php
+
+function DateThai($strDate)
+	{
+		$strYear = date("Y",strtotime($strDate))+543;
+		$strMonth= date("n",strtotime($strDate));
+		$strDay= date("j",strtotime($strDate));
+		$strMonthCut = Array("","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
+		$strMonthThai=$strMonthCut[$strMonth];
+		//$strYear=substr($strYear,2,2);
+		return "$strDay $strMonthThai $strYear";
+	}
+       // echo DateThai(date('Y-m-d'));
+?>             
