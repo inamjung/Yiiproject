@@ -109,7 +109,10 @@ use kartik\widgets\DepDrop;
     <?= $form->field($model, 'approve')->dropDownList([ 'อนุมัติ-ซ่อมเอง' => 'อนุมัติ-ซ่อมเอง', 'อนุมัติ-เคลม' => 'อนุมัติ-เคลม', 'อนุมัติ-ช่างนอก' => 'อนุมัติ-ช่างนอก', 'ไม่อนุมัติ' => 'ไม่อนุมัติ', 'รอพิจารณา' => 'รอพิจารณา', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'engineer_id')->widget(kartik\widgets\Select2::className(),[
-                'data'=>  \yii\helpers\ArrayHelper::map(app\models\Technicians::find()->all(), 'id', 'name'),
+                'data'=>  \yii\helpers\ArrayHelper::map(\app\models\Repairs::find()->all(), 'id', 
+                        function($model,$defaultValue){
+                            return $model->repairuser->username;
+                             }),
                 'options'=>[
                     'placeholder'=>'<-- ช่างผู้ซ่อม-->',                   
                 ],
