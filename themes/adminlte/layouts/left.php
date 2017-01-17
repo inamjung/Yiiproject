@@ -15,7 +15,7 @@
         </div>
         
             <ul class="sidebar-menu">
-                <li class="treeview">
+                <li class="treeview active">
                     <a href="#">
                         <i class="glyphicon glyphicon-cog"><span> ตั้งค่าระบบ</span></i>
                         <i class="fa pull-right fa-angle-down"></i>
@@ -24,6 +24,18 @@
                 <ul class="treeview-menu">
                     <li><a href="<?php echo yii\helpers\Url::to(['groups/index'])?>"> 
                             <span><i class="fa fa-circle text-red"></i> กลุ่มงาน</span>                        
+                        </a>                        
+                    </li>
+                    <li><a href="<?php echo yii\helpers\Url::to(['departments/index'])?>"> 
+                            <span><i class="fa fa-circle text-blue"></i> แผนก</span>                        
+                        </a>                        
+                    </li>
+                    <li><a href="<?php echo yii\helpers\Url::to(['positions/index'])?>"> 
+                            <span><i class="fa fa-circle text-green"></i> ตำแหน่ง</span>                        
+                        </a>                        
+                    </li>
+                    <li><a href="<?php echo yii\helpers\Url::to(['customers/index'])?>"> 
+                            <span><i class="fa fa-circle text-yellow"></i> พนักงาน</span>                        
                         </a>                        
                     </li>
                 </ul>
