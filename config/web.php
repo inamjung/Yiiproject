@@ -56,8 +56,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-            ],
-        ],
+            ],        ],
         */
     ],
     'modules'=>[
@@ -75,7 +74,13 @@ $config = [
         'admin' => [
             'class' => 'mdm\admin\Module',
             'layout' => 'left-menu'
-        ]
+        ],
+         'risk' => [
+            'class' => 'app\modules\risk\Module',
+        ],
+        'report' => [
+            'class' => 'app\modules\report\Module',
+        ],
     ],
      'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
@@ -92,6 +97,9 @@ $config = [
             'tooltypes',
             'positions/*',
             'technicians/*',
+            'gii/*',
+            'risk/*',
+            'report/*',
             'some-controller/some-action',   
         ]
     ],
