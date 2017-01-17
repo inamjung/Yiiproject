@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
            // 'id',
-            
+             'picture',   
             [
                'attribute'=>'name',
                'contentOptions'=>['class'=>'text-left','style'=>'width:210px;']
@@ -51,14 +51,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>function($model){
                     return DateThai($model->buy_date);
                 }
-            ],             
-             'picture',             
-            [
-                'attribute'=>'exp_date',
-                'value'=>function($model){
-                    return DateThai($model->exp_date);
-                }
-            ],
+            ],            
+                      
+//            [
+//                'attribute'=>'exp_date',
+//                'value'=>function($model){
+//                    return DateThai($model->exp_date);
+//                }
+//            ],
              [
                     'class' => 'kartik\grid\BooleanColumn',
                     'attribute' => 'use',
@@ -102,7 +102,7 @@ function DateThai($strDate)
 		$strDay= date("j",strtotime($strDate));
 		$strMonthCut = Array("","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
 		$strMonthThai=$strMonthCut[$strMonth];
-		//$strYear=substr($strYear,2,2);
+		$strYear=substr($strYear,2,2);
 		return "$strDay $strMonthThai $strYear";
 	}
        // echo DateThai(date('Y-m-d'));
