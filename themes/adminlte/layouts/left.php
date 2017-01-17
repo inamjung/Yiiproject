@@ -66,6 +66,32 @@
                 </ul>
                </li>    
             </ul>
+        <ul class="sidebar-menu">
+                <li class="treeview active">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-cog"><span> รายงานความเสี่ยง</span></i>
+                        <i class="fa pull-right fa-angle-down"></i>
+                    </a>               
+                <ul class="treeview-menu">                    
+                    <li><a href="<?php echo yii\helpers\Url::to(['/risk/clinics/index'])?>"> 
+                            <span><i class="fa fa-circle text-blue"></i> ประเภทคลินิก</span>                        
+                        </a>                        
+                    </li>
+                    <li><a href="<?php echo yii\helpers\Url::to(['/risk/levels/index'])?>"> 
+                            <span><i class="fa fa-circle text-blue"></i> ระดับความรุนแรง</span>                        
+                        </a>                        
+                    </li>
+                     <li><a href="<?php echo yii\helpers\Url::to(['/risk/programes/index'])?>"> 
+                            <span><i class="fa fa-circle text-blue"></i> โปรแกรม</span>                        
+                        </a>                        
+                    </li>
+                    <li><a href="<?php echo yii\helpers\Url::to(['/risk/risktypes/index'])?>"> 
+                            <span><i class="fa fa-circle text-blue"></i> รายการ</span>                        
+                        </a>                        
+                    </li>
+                </ul>
+               </li>    
+            </ul>
        
 
     </section>
