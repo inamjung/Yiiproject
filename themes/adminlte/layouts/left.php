@@ -13,9 +13,9 @@
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
-        
+        <?php  if(Yii::$app->user->identity->role == dektrium\user\models\User::ROLE_ADMIN) {?>
             <ul class="sidebar-menu">
-                <li class="treeview active">
+                <li class="treeview">
                     <a href="#">
                         <i class="glyphicon glyphicon-cog"><span> ตั้งค่าระบบ</span></i>
                         <i class="fa pull-right fa-angle-down"></i>
@@ -37,7 +37,18 @@
                     <li><a href="<?php echo yii\helpers\Url::to(['customers/index'])?>"> 
                             <span><i class="fa fa-circle text-yellow"></i> พนักงาน</span>                        
                         </a>                        
-                    </li>
+                    </li>                    
+                </ul>
+               </li>    
+            </ul>
+        <?php }?> 
+        <ul class="sidebar-menu">
+                <li class="treeview active">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-cog"><span> แจ้งซ่อม</span></i>
+                        <i class="fa pull-right fa-angle-down"></i>
+                    </a>               
+                <ul class="treeview-menu">                    
                     <li><a href="<?php echo yii\helpers\Url::to(['repairs/indexuser'])?>"> 
                             <span><i class="fa fa-circle text-blue"></i> ส่งซ่อม</span>                        
                         </a>                        
