@@ -59,12 +59,19 @@ class HosxpreportController extends Controller{
         $dataProvider = new ArrayDataProvider([
             'allModels'=>$data
         ]);
+        for ($i = 0; $i < sizeof($data); $i++) {
+            $pdx[] = $data[$i]['pdx'];        
+            $icdname[] = $data[$i]['icdname']; 
+            $a[] = $data[$i]['a']*1; 
+        }
         
         return $this->render('opddiag',[
             'dataProvider'=>$dataProvider,
             'date1'=>$date1,
             'date2'=>$date2, 
-            'pdx'=>$pdx
+            'pdx'=>$pdx,
+            'icdname'=>$icdname,
+            'a'=>$a
         ]);        
     }
     

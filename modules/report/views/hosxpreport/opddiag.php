@@ -7,6 +7,7 @@ use kartik\grid\GridView;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use kartik\widgets\Select2;
+use miloschuman\highcharts\Highcharts;
 ?>
 <?php 
     $form = ActiveForm::begin(['method'=>'get',
@@ -95,3 +96,27 @@ echo GridView::widget([
 ]);
 ?>
 
+<?php
+    echo Highcharts::widget([
+   'options' => [
+      'title' => ['text' => '๑๐ อันดับโรค'],
+      'xAxis' => [
+         'categories' => $icdname
+      ],
+      'yAxis' => [
+         'title' => ['text' => 'จำนวนผู้ป่วย']
+      ],
+      'series' => [
+         [
+           'type'=>'column',  
+           'name' => 'จำนวน',
+           'data' => $a,
+            'dataLabels'=>[
+                'enabled'=>true
+            ] 
+             ],
+         
+      ]
+   ]
+]);
+?>
