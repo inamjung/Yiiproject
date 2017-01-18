@@ -129,11 +129,11 @@
                         <i class="fa pull-right fa-angle-down"></i>
                     </a>               
                 <ul class="treeview-menu">                    
-                    <li><a href="<?php echo yii\helpers\Url::to(['/report/clinics/index'])?>"> 
+                    <li><a href="<?php echo yii\helpers\Url::to(['/report/hosxpreport/personpttype'])?>"> 
                             <span><i class="fa fa-circle text-blue"></i> จำนวนผู้ป่วยตามสิทธิ์</span>                        
                         </a>                        
                     </li>
-                    <li><a href="<?php echo yii\helpers\Url::to(['/report/levels/index'])?>"> 
+                    <li><a href="<?php echo yii\helpers\Url::to(['/report/hosxpreport/opddiag'])?>"> 
                             <span><i class="fa fa-circle text-blue"></i> ๑๐ อันดับโรค</span>                        
                         </a>                        
                     </li>

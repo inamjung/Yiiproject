@@ -6,6 +6,7 @@ use yii\data\ArrayDataProvider;
 use kartik\grid\GridView;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
+use kartik\widgets\Select2;
 ?>
 <?php 
     $form = ActiveForm::begin(['method'=>'get',
@@ -47,6 +48,25 @@ use yii\helpers\ArrayHelper;
             ],
         ]);
         ?>        
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <?php
+                $a = ['10'=>'จ่ายสด','89'=>'ทอง30บาท'];
+                //$a = ArrayHelper::map(app\modules\risk\models\Clinics::find()->all(), 'id', 'name');
+               echo kartik\widgets\Select2::widget([
+                   'name'=>'pttype',
+                   'data'=> $a,
+                   'value'=>$pttype,
+                   'size'=>  Select2::MEDIUM,
+                   'options'=>[
+                       'placeholder'=>'<--ระบุสิทธิ์-->'
+                   ],
+                   'pluginOptions'=>[
+                       'allowClear'=>true
+                   ]
+               ])
+                       
+            ?>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
             <button class="btn btn-warning"> ประมวลผล</button>
