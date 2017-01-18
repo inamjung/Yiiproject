@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+//            'id',
             'date',
             'clinic_id',
             'programe_id',
@@ -55,13 +55,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'review_by',
             'review_dateline',
             'qateam',
-            'username',
-            'covenant',
-            'docs:ntext',
-            'ref',
-            'complete',
+//            'username',
+//            'covenant',
+//            'docs:ntext',
+//            'ref',
+//            'complete',
             'createDate',
-            'updateDate',
+//            'updateDate',
         ],
     ]) ?>
 
