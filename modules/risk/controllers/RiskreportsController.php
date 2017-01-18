@@ -58,6 +58,7 @@ class RiskreportsController extends Controller
     public function actionIndexuser()
     {
         $searchModel = new RiskreportsSearch();
+        $searchModel->department_id = Yii::$app->user->identity->department_id;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('indexuser', [
@@ -65,6 +66,19 @@ class RiskreportsController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    
+    public function actionIndexuserrisk()
+    {
+        $searchModel = new RiskreportsSearch();
+        $searchModel->department_id_risk = Yii::$app->user->identity->department_id;
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('indexuserrisk', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    
     public function actionIndexadmin()
     {
         $searchModel = new RiskreportsSearch();

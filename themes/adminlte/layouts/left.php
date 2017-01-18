@@ -103,8 +103,12 @@
                             <span><i class="fa fa-circle text-green"></i> รายงานความเสี่ยง</span>                        
                         </a>                        
                     </li>
+                    <li><a href="<?php echo yii\helpers\Url::to(['/risk/riskreports/indexuserrisk'])?>"> 
+                            <span><i class="fa fa-circle text-red"></i> ความเสี่ยงเกิดที่ฝ่ายเรา</span>                        
+                        </a>                        
+                    </li>
                     <li><a href="<?php echo yii\helpers\Url::to(['/risk/riskreports/indexadmin'])?>"> 
-                            <span><i class="fa fa-circle text-green"></i> รัยรายงานความเสี่ยง</span>                        
+                            <span><i class="fa fa-circle text-green"></i> รับรายงานความเสี่ยง</span>                        
                         </a>                        
                     </li>
                      
