@@ -87,7 +87,7 @@ $config = [
         'allowActions' => [
             'site/*',
          
-             'admin/*',
+            'admin/*',
             'user/*',
             'groups/*',
             'departments/*',
