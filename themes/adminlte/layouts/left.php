@@ -4,7 +4,7 @@
 
         <!-- Sidebar user panel -->
        <?php if (!Yii::$app->user->isGuest) { ?>
-        <div class="user-panel">
+<!--        <div class="user-panel">
             <div class="pull-left image">
                 <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
             </div>
@@ -13,7 +13,8 @@
 
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
-        </div>
+        </div>-->
+<hr>
         <?php  if(Yii::$app->user->identity->role == dektrium\user\models\User::ROLE_ADMIN) {?>
             <ul class="sidebar-menu">
                 <li class="treeview">
