@@ -115,6 +115,25 @@
                 </ul>
                </li>    
             </ul>
+        
+        <ul class="sidebar-menu">
+                <li class="treeview">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-cog"><span> รายงานHOSxP</span></i>
+                        <i class="fa pull-right fa-angle-down"></i>
+                    </a>               
+                <ul class="treeview-menu">                    
+                    <li><a href="<?php echo yii\helpers\Url::to(['/report/clinics/index'])?>"> 
+                            <span><i class="fa fa-circle text-blue"></i> จำนวนผู้ป่วยตามสิทธิ์</span>                        
+                        </a>                        
+                    </li>
+                    <li><a href="<?php echo yii\helpers\Url::to(['/report/levels/index'])?>"> 
+                            <span><i class="fa fa-circle text-blue"></i> ๑๐ อันดับโรค</span>                        
+                        </a>                        
+                    </li>
+                </ul>
+               </li>    
+            </ul>
        
 
     </section>
