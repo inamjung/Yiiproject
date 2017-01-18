@@ -51,6 +51,20 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'db2'=>[
+             'class' => 'yii\db\Connection',
+                'dsn' => 'mysql:host=localhost;dbname=hos',
+                'username' => 'sa',
+                'password' => 'sa',
+                'charset' => 'utf8',
+                   ],
+//        'db3'=>[
+//             'class' => 'yii\db\Connection',
+//                'dsn' => 'mysql:host=localhost;dbname=hos_pcu',
+//                'username' => 'sa',
+//                'password' => 'sa',
+//                'charset' => 'utf8',
+//                    ]
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -81,6 +95,7 @@ $config = [
         'report' => [
             'class' => 'app\modules\report\Module',
         ],
+        
     ],
      'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
