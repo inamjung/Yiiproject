@@ -140,6 +140,21 @@
                 </ul>
                </li>    
             </ul>
+        
+        <ul class="sidebar-menu">
+                <li class="treeview active">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-cog"><span> บันทึกข้อมูลข้ามตาราง</span></i>
+                        <i class="fa pull-right fa-angle-down"></i>
+                    </a>               
+                <ul class="treeview-menu">                    
+                    <li><a href="<?php echo yii\helpers\Url::to(['/report/hosxpreport/ptname'])?>"> 
+                            <span><i class="fa fa-circle text-blue"></i> บันทึกข้อมูลข้มตาราง</span>                        
+                        </a>                        
+                    </li>                   
+                </ul>
+               </li>    
+            </ul>
 
     </section>
 </aside>

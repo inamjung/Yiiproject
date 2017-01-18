@@ -37,7 +37,7 @@ class HosxpreportController extends Controller{
             
         ]);
     }
-    public function actionOpddiag($date1=null,$date2=null,$pdx=null){
+    public function actionOpddiag($date1=null,$date2=null,$pdx=null,$icdname=null,$a=null){
         if($date1==null){
             $date1 = date('Y-m-d');
             $date2 = date('Y-m-d');
@@ -101,6 +101,46 @@ class HosxpreportController extends Controller{
             'date2'=>$date2, 
             'pdx'=>$pdx
         ]); 
+    }
+    
+    public function actionPtname($cid=null){        
+        
+        $connection = \Yii::$app->db2;
+        $data = $connection->createCommand("select pt.hn,pt.cid
+            ,CONCAT(pt.pname,pt.fname,' ',pt.lname ) ptname
+            from patient pt
+            where pt.cid='$cid'")->queryAll();
+        
+        $dataProvider = new ArrayDataProvider([
+            'allModels'=>$data
+        ]);
+//        for ($i = 0; $i < sizeof($data); $i++) {
+//            $pdx[] = $data[$i]['pdx'];        
+//            $icdname[] = $data[$i]['icdname']; 
+//            $a[] = $data[$i]['a']*1; 
+//        }
+        
+        return $this->render('ptname',[
+            'dataProvider'=>$dataProvider,
+            'cid'=>$cid
+//            'date1'=>$date1,
+//            'date2'=>$date2, 
+//            'pdx'=>$pdx,
+//            'icdname'=>$icdname,
+//            'a'=>$a
+        ]);        
+    }
+    
+    public function actionInsertptname($cid=null,$hn=null,$ptname=null){
+        
+        $insertpt = new \app\models\Patient();
+        
+        $insertpt->cid = $cid;
+        $insertpt->hn = $hn;
+        $insertpt->ptname = $ptname;
+        
+        $insertpt->save();
+        return $this->redirect(['/report/hosxpreport/ptname']);
     }
 }
 

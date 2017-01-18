@@ -4,7 +4,7 @@ use miloschuman\highcharts\Highcharts;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Yii-Repair';
+$this->title = 'Yii-ProJect';
 ?>
 <div class="site-index">
 
