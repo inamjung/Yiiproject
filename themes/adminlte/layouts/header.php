@@ -51,11 +51,11 @@ use yii\bootstrap\Nav;
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="<?php echo yii\helpers\Url::to(['/users/indexusers'])?>" class="btn btn-default btn-flat">ข้อมูลส่วนตัว</a>
                             </div>
                             <div class="pull-right">
                                 <?= Html::a(
-                                    'Sign out',
+                                    'ออกจากระบบ',
                                     ['/site/logout'],
                                     ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
                                 ) ?>

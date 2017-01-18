@@ -115,6 +115,7 @@ $config = [
             'gii/*',
             'risk/*',
             'report/*',
+            'users/*',
             'some-controller/some-action',   
         ]
     ],

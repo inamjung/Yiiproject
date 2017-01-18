@@ -8,6 +8,8 @@ use app\models\UsersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use yii\helpers\BaseFileHelper;
 
 /**
  * UsersController implements the CRUD actions for Users model.
@@ -39,6 +41,17 @@ class UsersController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionIndexusers()
+    {
+        $searchModel = new UsersSearch();
+        $searchModel->id = \Yii::$app->user->identity->id;
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('indexusers', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -88,6 +101,26 @@ class UsersController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
+    }
+    public function actionUpdateusers($id)
+    {
+        $model = $this->findModel($id);
+
+        if ($model->load(Yii::$app->request->post())) {
+            
+            $file = UploadedFile::getInstance($model, 'avatar_img');
+            if(isset($file->size) && $file->size!=0){
+                $model->avatar = $file->name;
+                $file->saveAs('avatars/'.$file->name);
+            }            
+             $model->save();
+             
+            return $this->redirect(['indexusers']);
+        } else {
+            return $this->render('updateusers', [
                 'model' => $model,
             ]);
         }

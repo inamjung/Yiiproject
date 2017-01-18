@@ -38,6 +38,7 @@ class Users extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public $avatar_img;
     public static function tableName()
     {
         return 'user';
@@ -52,13 +53,14 @@ class Users extends \yii\db\ActiveRecord
             [['username', 'email', 'password_hash', 'auth_key', 'created_at', 'updated_at'], 'required'],
             [['confirmation_sent_at', 'confirmed_at', 'recovery_sent_at', 'blocked_at', 'registered_from', 'logged_in_from', 'logged_in_at', 'created_at', 'updated_at', 'last_login_at', 'department_id', 'position_id'], 'integer'],
             [['username'], 'string', 'max' => 25],
-            [['email', 'unconfirmed_email', 'name', 'status', 'password_reset_token'], 'string', 'max' => 255],
+            [['email', 'unconfirmed_email', 'name', 'status', 'password_reset_token','avatar'], 'string', 'max' => 255],
             [['password_hash'], 'string', 'max' => 60],
             [['auth_key', 'confirmation_token', 'recovery_token'], 'string', 'max' => 32],
             [['registration_ip'], 'string', 'max' => 45],
             [['role'], 'string', 'max' => 2],
             [['username'], 'unique'],
-            [['email'], 'unique'],
+            [['email'], 'unique'],        
+            [['avatar_img'],'file','skipOnEmpty'=>true,'on'=>'update','extensions'=>'jpg,png']
         ];
     }
 
@@ -87,12 +89,19 @@ class Users extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
             'registration_ip' => 'Registration Ip',
             'last_login_at' => 'Last Login At',
-            'name' => 'Name',
-            'department_id' => 'Department ID',
-            'position_id' => 'Position ID',
-            'role' => 'Role',
+            'name' => 'ชื่อ-สกุล',
+            'department_id' => 'แผนก',
+            'position_id' => 'ตำแหน่ง',
+            'role' => 'บทบาท',
             'status' => 'Status',
             'password_reset_token' => 'Password Reset Token',
         ];
     }
+    public function getUserdep(){
+        return $this->hasOne(Departments::className(), ['id'=>'department_id']);
+    }
+    public function getUserpos(){
+        return $this->hasOne(Positions::className(), ['id'=>'position_id']);
+    }
+    
 }
