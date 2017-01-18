@@ -108,6 +108,12 @@
                         </a>                        
                     </li>
                     <li><a href="<?php echo yii\helpers\Url::to(['/risk/riskreports/indexadmin'])?>"> 
+                            <small class="badge pull-right bg-green-gradient">
+                            <?php echo app\modules\risk\models\Riskreports::find()->where(['approve'=>0])
+                                   // ->andWhere([''=>''])
+                                    //->orWhere([''=>''])
+                                    ->count()?>
+                            </small>    
                             <span><i class="fa fa-circle text-green"></i> รับรายงานความเสี่ยง</span>                        
                         </a>                        
                     </li>

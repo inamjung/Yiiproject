@@ -75,7 +75,7 @@ $config = [
             'class' => 'mdm\admin\Module',
             'layout' => 'left-menu'
         ],
-         'risk' => [
+        'risk' => [
             'class' => 'app\modules\risk\Module',
         ],
         'report' => [

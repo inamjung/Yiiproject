@@ -69,6 +69,7 @@ class Riskreports extends \yii\db\ActiveRecord
             [['moneydetail'], 'string', 'max' => 500],
             [['reviewteam', 'review_by', 'username', 'covenant'], 'string', 'max' => 255],
             [['ref'], 'string', 'max' => 50],
+            [['review', 'approve', 'qaapprove', 'complete'],'default','value'=>0]
         ];
     }
 

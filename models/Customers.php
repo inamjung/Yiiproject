@@ -113,7 +113,8 @@ class Customers extends \yii\db\ActiveRecord
     public function beforeSave($insert) {
         if (parent::beforeSave($insert)) {
             if (!empty($this->name)) {
-                $this->interest = $this->setToArray($this->interest);                  
+                $this->interest = $this->setToArray($this->interest);
+                
             }
             return true;
         } else {

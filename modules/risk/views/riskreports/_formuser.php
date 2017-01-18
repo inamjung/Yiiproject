@@ -44,7 +44,7 @@ use yii\helpers\Url;
         </div>
     </div>  
     <div class="row">    
-        <div class="col-xs-5 col-sm-5 col-md-5">
+        <div class="col-xs-5 col-sm-5 col-md-5" style="display: none">
             <?=
             $form->field($model, 'clinic_id')->widget(Select2::className(), ['data' => 
                         ArrayHelper::map(Clinics::find()->all(), 'id', 'name'),
@@ -57,7 +57,7 @@ use yii\helpers\Url;
                     ]);
             ?>
         </div>
-        <div class="col-xs-7 col-sm-7 col-md-7">
+        <div class="col-xs-7 col-sm-7 col-md-7" style="display: none">
             <?=
             $form->field($model, 'programe_id')->widget(DepDrop::className(), [
                         'data' => [$programe],
@@ -75,7 +75,7 @@ use yii\helpers\Url;
     </div>
     
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="display: none">
             <?=
             $form->field($model, 'risktype_id')->widget(DepDrop::className(), [
                         'data' => [$risktype],

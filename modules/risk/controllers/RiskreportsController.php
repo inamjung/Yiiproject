@@ -81,7 +81,7 @@ class RiskreportsController extends Controller
     
     public function actionIndexadmin()
     {
-        $searchModel = new RiskreportsSearch();
+        $searchModel = new RiskreportsSearch(['approve'=>0]);
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('indexadmin', [
