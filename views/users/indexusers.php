@@ -27,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'id',
             [
                 'attribute'=>'avatar',
+                'header'=>'รูปประจำตัว',
                 'format'=>'html',
                 'format' => 'html',
                 'value' => function($model) {
