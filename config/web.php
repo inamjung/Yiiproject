@@ -117,6 +117,7 @@ $config = [
             'report/*',
             'users/*',
             'patient/*',
+            'gridview/*',
             
             'some-controller/some-action',   
         ]

@@ -57,7 +57,7 @@
                         </a>                        
                     </li>
                     <li><a href="<?php echo yii\helpers\Url::to(['repairs/index'])?>"> 
-                            <span><i class="fa fa-circle text-red"></i> รับซ่อม</span>                        
+                            <span><i class="fa fa-refresh fa-spin fa-1x fa-fw"></i> รับซ่อม</span>                        
                         </a>                        
                     </li>
                      <li><a href="<?php echo yii\helpers\Url::to(['repairs/indexok'])?>"> 

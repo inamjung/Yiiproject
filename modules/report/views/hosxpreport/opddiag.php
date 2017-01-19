@@ -66,7 +66,8 @@ use miloschuman\highcharts\Highcharts;
 
 <?php
 if(count($a) == 0){
-    echo "<div class='alert alert-info'>ยังไม่มีข้อมูล</div>";
+    echo "<div class='alert alert-info'><p><b>รายงาน : ๑๐ อันดับโรค OPD</b></p>"
+        . "<p>---- ยังไม่มีข้อมูล ----</p></div>";
     return;
 }?>
 
@@ -116,7 +117,7 @@ echo GridView::widget([
 <?php
     echo Highcharts::widget([
    'options' => [
-      'title' => ['text' => '๑๐ อันดับโรค'],
+      'title' => ['text' => '๑๐ อันดับโรค OPD'],
       'xAxis' => [
          'categories' => $icdname
       ],

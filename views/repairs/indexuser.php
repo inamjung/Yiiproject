@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
                 'hover' => true,
                 'striped' => false,
-                'filterModel' => $searchModel,
+                //'filterModel' => $searchModel,
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn'],
                     // 'id',
@@ -54,14 +54,14 @@ $this->params['breadcrumbs'][] = $this->title;
                    // ['class' => 'yii\grid\ActionColumn'],
                     [
                 'class' => 'yii\grid\ActionColumn',
-                'options'=>['style'=>'width:80px;'],
+                'options'=>['style'=>'width:120px;'],
                 'template'=>'<div class="btn-group btn-group-sm" role="group" aria-label="...">{view}{update}</div>',                
                 'buttons'=>[                    
                     'view'=>function($url,$model,$key){
-                        return Html::a('<i class="glyphicon glyphicon-search"></i> ',$url);
+                        return Html::a('<i class="glyphicon glyphicon-search"></i> ',$url,['class'=>'btn btn-info']);
                     }, 
                     'update'=>function($url,$model,$key){
-                        return Html::a('<i class="glyphicon glyphicon-edit"> </i>',['updateuser','id'=>$model->id]);
+                        return Html::a('<i class="glyphicon glyphicon-edit"> </i>',['updateuser','id'=>$model->id],['class'=>'btn btn-info']);
                     },
 //                    'delete'=>function($url,$model,$key){
 //                         return Html::a('<i class="glyphicon glyphicon-trash"></i>', $url,[

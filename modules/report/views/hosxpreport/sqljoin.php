@@ -38,7 +38,8 @@ $form = ActiveForm::begin(['method' => 'get',
 <?php ActiveForm::end(); ?>
 <?php
 if (count($datas) == 0) {
-    echo "<div class='alert alert-success'>ยังไม่มีผลลัพธ์จากการค้นหาข้อมูล</div>";
+    echo "<div class='alert alert-success'><p><b>ตัวอย่าง : คิวรีแบบjoin table บันทึกลงตารางอื่น</b></p>"
+        . "<p>---- ยังไม่มีข้อมูล ----</p></div>";
     return;
 }
 ?>

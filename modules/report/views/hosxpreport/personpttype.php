@@ -7,6 +7,8 @@ use kartik\grid\GridView;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use kartik\widgets\Select2;
+
+$d = $dataProvider->getModels();
 ?>
 <?php 
     $form = ActiveForm::begin(['method'=>'get',
@@ -16,6 +18,7 @@ use kartik\widgets\Select2;
 <div class="well">
     <div class="row">
         <div class="col-xs-3 col-sm-3 col-md-3">
+            จากวันที่
              <?php
         echo yii\jui\DatePicker::widget([
             'name' => 'date1',
@@ -33,6 +36,7 @@ use kartik\widgets\Select2;
         ?>        
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
+            ถึงวันที่
              <?php
         echo yii\jui\DatePicker::widget([
             'name' => 'date2',
@@ -50,6 +54,7 @@ use kartik\widgets\Select2;
         ?>        
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
+            เลือกสิทธิ์
             <?php
                 $a = ['10'=>'จ่ายสด','89'=>'ทอง30บาท'];
                 //$a = ArrayHelper::map(app\modules\risk\models\Clinics::find()->all(), 'id', 'name');
@@ -74,6 +79,14 @@ use kartik\widgets\Select2;
     </div>
 </div>
 <?php ActiveForm::end()?>
+
+<?php 
+    if(count($d)== 0){
+        echo "<div class='alert alert-success'><p><b>รายงาน : จำนวนผู้ป่วยแยกตามสิทธิ์</b></p>"
+        . "<p>---- ยังไม่มีข้อมูล ----</p></div>";
+            return;
+    }
+?>
 <?php
 
 $gridColumns = [

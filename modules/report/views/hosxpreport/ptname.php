@@ -32,7 +32,8 @@ $b = $dataProvider->getModels();
 
 <?php
 if (count($b) == 0) {
-    echo "<div class='alert alert-success'>ยังไม่มีผลลัพธ์จากการค้นหาข้อมูล</div>";
+    echo "<div class='alert alert-success'><p><b>ตัวอย่าง : คิวรีแบบ table บันทึกลงตารางอื่น</b></p>"
+        . "<p>---- ยังไม่มีข้อมูล ----</p></div>";
     return;
 }
 ?>

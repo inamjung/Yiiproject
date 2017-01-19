@@ -62,7 +62,7 @@ use kartik\widgets\DepDrop;
 
     <?= $form->field($model, 'problem')->textarea(['readonly'=>true,'rows' => 6]) ?>
 
-    <?= $form->field($model, 'stage')->dropDownList([ 'รอได้ภายใน 3 วัน' => 'รอได้ภายใน 3 วัน', 'รอได้ภายใน 7 วัน' => 'รอได้ภายใน 7 วัน', 'รอได้ภายใน 1 วัน' => 'รอได้ภายใน 1 วัน', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'stage')->dropDownList([ 'รอได้ภายใน 3 วัน' => 'รอได้ภายใน 3 วัน', 'รอได้ภายใน 7 วัน' => 'รอได้ภายใน 7 วัน', 'รอได้ภายใน 1 วัน' => 'รอได้ภายใน 1 วัน', ], ['prompt' => '','disabled'=>true]) ?>
 
     <?= $form->field($model, 'startdate')->widget(yii\jui\DatePicker::className(),[
                  'language'=>'th',
