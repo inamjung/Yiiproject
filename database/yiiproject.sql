@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50525
 File Encoding         : 65001
 
-Date: 2017-01-18 21:29:20
+Date: 2017-01-19 12:01:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -2543,6 +2543,109 @@ CREATE TABLE `social_account` (
 
 -- ----------------------------
 -- Records of social_account
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for sqljoin
+-- ----------------------------
+DROP TABLE IF EXISTS `sqljoin`;
+CREATE TABLE `sqljoin` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `cid` varchar(13) DEFAULT NULL COMMENT 'CID',
+  `pass` int(11) DEFAULT NULL,
+  `fcttype_id` int(11) DEFAULT NULL COMMENT 'ประเภทผู้ป่วย',
+  `colour_id` int(11) DEFAULT NULL COMMENT 'ระดับ',
+  `hn` varchar(9) DEFAULT NULL,
+  `an` varchar(10) DEFAULT NULL,
+  `ptname` varchar(50) DEFAULT NULL COMMENT 'ผู้ป่วย',
+  `ptage` varchar(3) DEFAULT NULL COMMENT 'อายุ',
+  `diage` varchar(100) DEFAULT NULL COMMENT 'โรค',
+  `pps` varchar(5) DEFAULT NULL,
+  `pain` varchar(5) DEFAULT NULL,
+  `painnote` varchar(100) DEFAULT NULL,
+  `cc` varchar(200) DEFAULT NULL,
+  `pi` varchar(250) DEFAULT NULL,
+  `bt` varchar(5) DEFAULT NULL,
+  `pr` varchar(5) DEFAULT NULL,
+  `rr` varchar(5) DEFAULT NULL,
+  `bp` varchar(7) DEFAULT NULL,
+  `drugallergy` varchar(100) DEFAULT NULL,
+  `admit` date DEFAULT NULL,
+  `dc` date DEFAULT NULL,
+  `or` varchar(100) DEFAULT NULL,
+  `ordate` date DEFAULT NULL,
+  `disease` varchar(50) DEFAULT NULL,
+  `receive` varchar(250) DEFAULT NULL,
+  `address` varchar(200) DEFAULT NULL COMMENT 'ที่อยู่',
+  `ptcate` varchar(50) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `hossub` varchar(100) DEFAULT NULL,
+  `tra` varchar(100) DEFAULT NULL,
+  `retng` varchar(100) DEFAULT NULL,
+  `retfo` varchar(100) DEFAULT NULL,
+  `colobag` varchar(100) DEFAULT NULL,
+  `lesion` varchar(100) DEFAULT NULL,
+  `lesioncare` varchar(100) DEFAULT NULL,
+  `recov` varchar(100) DEFAULT NULL,
+  `recovcare` varchar(100) DEFAULT NULL,
+  `oxygen` varchar(100) DEFAULT NULL,
+  `lr01` varchar(100) DEFAULT NULL,
+  `lr02` varchar(200) DEFAULT NULL,
+  `lr03` varchar(100) DEFAULT NULL,
+  `lr04` varchar(200) DEFAULT NULL,
+  `lr05` varchar(100) DEFAULT NULL,
+  `lr06` varchar(200) DEFAULT NULL,
+  `lr07` varchar(10) DEFAULT NULL,
+  `lr08` varchar(10) DEFAULT NULL,
+  `lr09` varchar(10) DEFAULT NULL,
+  `lr10` varchar(200) DEFAULT NULL,
+  `lrl01` varchar(200) DEFAULT NULL,
+  `lrl02` varchar(10) DEFAULT NULL,
+  `lrl03` varchar(10) DEFAULT NULL,
+  `lrl04` varchar(10) DEFAULT NULL,
+  `lrl05` varchar(10) DEFAULT NULL,
+  `lrl06` varchar(10) DEFAULT NULL,
+  `lrl07` varchar(100) DEFAULT NULL,
+  `lrl08` varchar(100) DEFAULT NULL,
+  `lr` varchar(100) DEFAULT NULL,
+  `lrl09` varchar(100) DEFAULT NULL,
+  `lrl10` varchar(10) DEFAULT NULL,
+  `lrl11` varchar(10) DEFAULT NULL,
+  `lrl12` varchar(10) DEFAULT NULL,
+  `lrl13` varchar(10) DEFAULT NULL,
+  `other` varchar(100) DEFAULT NULL,
+  `appdate` date DEFAULT NULL,
+  `doctorapp` varchar(50) DEFAULT NULL,
+  `appdate2` date DEFAULT NULL,
+  `doctorapp2` varchar(50) DEFAULT NULL,
+  `appdate3` date DEFAULT NULL,
+  `doctorapp3` varchar(50) DEFAULT NULL,
+  `senddate` date DEFAULT NULL COMMENT 'วันที่ส่งเยี่ยม',
+  `windpipe` varchar(100) DEFAULT NULL,
+  `insulin` varchar(100) DEFAULT NULL,
+  `equip` varchar(100) DEFAULT NULL,
+  `depart` varchar(50) DEFAULT NULL COMMENT 'แผนกที่ส่ง',
+  `hosin` int(11) DEFAULT NULL COMMENT 'รพ.สต',
+  `officer` varchar(50) DEFAULT NULL,
+  `confirm` smallint(2) DEFAULT '0',
+  `confirmfct` smallint(2) DEFAULT '0',
+  `send` smallint(2) DEFAULT '0' COMMENT 'ส่งเยี่ยม',
+  `okcase` smallint(2) DEFAULT '0' COMMENT 'รับเคส',
+  `birthday` date DEFAULT NULL COMMENT 'วันเกิด',
+  `tmbpart` varchar(2) DEFAULT NULL COMMENT 'ตำบล',
+  `sex` varchar(1) DEFAULT NULL COMMENT 'เพศ',
+  `bloodgrp` varchar(30) DEFAULT NULL COMMENT 'กรุ๊ปเลือด',
+  `pttype` char(2) DEFAULT NULL COMMENT 'สิทธิ์การรักษา',
+  `moopart` varchar(10) DEFAULT NULL,
+  `bw` double DEFAULT NULL,
+  `height` double DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `vstdate` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=tis620;
+
+-- ----------------------------
+-- Records of sqljoin
 -- ----------------------------
 
 -- ----------------------------
