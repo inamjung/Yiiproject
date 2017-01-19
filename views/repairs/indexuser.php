@@ -34,7 +34,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     //'department_id',
                     //'datenotuse',
                     'satatus',
-                    'createDate',                    
+                    [
+                        'attribute' => 'createDate',
+                        'value' => function($model, $key) {
+                            return DateThai($model->createDate);
+                        }
+                    ],                   
                     [
                         'attribute'=>'tool_id',
                         'value'=>'repairtool.name'
@@ -80,3 +85,17 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>    
 </div>
+ <?php
+
+        function DateThai($strDate) {
+            $strYear = date("Y", strtotime($strDate)) + 543;
+            $strMonth = date("n", strtotime($strDate));
+            $strDay = date("j", strtotime($strDate));
+            $strMonthCut = Array("", "ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.");
+            $strMonthThai = $strMonthCut[$strMonth];
+            $strYear = substr($strYear, 2, 2);
+            return "$strDay $strMonthThai $strYear";
+        }
+
+        // echo DateThai(date('Y-m-d'));
+        ?>     
