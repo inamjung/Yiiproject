@@ -9,7 +9,6 @@ use yii\helpers\ArrayHelper;
 use kartik\widgets\Select2;
 use miloschuman\highcharts\Highcharts;
 
-$b = $dataProvider->getModels();
 
 ?>
 
@@ -21,6 +20,7 @@ $b = $dataProvider->getModels();
 <div class="well">
     <div class="row">
         <div class="col-xs-3 col-sm-3 col-md-3">
+            จากวันที่
              <?php
         echo yii\jui\DatePicker::widget([
             'name' => 'date1',
@@ -28,16 +28,19 @@ $b = $dataProvider->getModels();
             'language' => 'th',
             'dateFormat' => 'yyyy-MM-dd',
             'clientOptions' => [
+                //'prompt'=>'ระบวันที่จาก',
                 'changeMonth' => true,
                 'changeYear' => true,
             ],
             'options'=>[
+                
                 'class'=>'form-control'
             ],
         ]);
         ?>        
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
+            ถึงวันที่
              <?php
         echo yii\jui\DatePicker::widget([
             'name' => 'date2',
@@ -60,8 +63,14 @@ $b = $dataProvider->getModels();
     </div>
 </div>
 <?php ActiveForm::end()?>
-<?php
 
+<?php
+if(count($a) == 0){
+    echo "<div class='alert alert-info'>ยังไม่มีข้อมูล</div>";
+    return;
+}?>
+
+<?php
 $gridColumns = [
     ['class' => 'kartik\grid\SerialColumn'],
         [

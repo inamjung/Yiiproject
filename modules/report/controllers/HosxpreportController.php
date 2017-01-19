@@ -9,8 +9,8 @@ class HosxpreportController extends Controller{
     
     public function actionPersonpttype($date1=null,$date2=null,$pttype=null){
         if($date1==null){
-            $date1 = date('Y-m-d');
-            $date2 = date('Y-m-d');
+//            $date1 = date('Y-m-d');
+//            $date2 = date('Y-m-d');
         }
         
         $connection = \Yii::$app->db2;
@@ -39,8 +39,8 @@ class HosxpreportController extends Controller{
     }
     public function actionOpddiag($date1=null,$date2=null,$pdx=null,$icdname=null,$a=null){
         if($date1==null){
-            $date1 = date('Y-m-d');
-            $date2 = date('Y-m-d');
+//            $date1 = date('Y-m-d');
+//            $date2 = date('Y-m-d');
         }
         
         $connection = \Yii::$app->db2;
