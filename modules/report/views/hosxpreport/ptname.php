@@ -7,6 +7,7 @@ use kartik\grid\GridView;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 
+$b = $dataProvider->getModels();
 ?>
 <?php 
     $form = ActiveForm::begin(['method'=>'get',
@@ -28,6 +29,14 @@ use yii\helpers\ArrayHelper;
     </div>
 </div>
 <?php ActiveForm::end()?>
+
+<?php
+if (count($b) == 0) {
+    echo "<div class='alert alert-success'>ยังไม่มีผลลัพธ์จากการค้นหาข้อมูล</div>";
+    return;
+}
+?>
+
 <?php
 
 $gridColumns = [
@@ -64,6 +73,7 @@ echo GridView::widget([
     'responsive' => true,
     'hover' => true,
     'striped' => false,
+    'toolbar'=>[],
     'panel' => ['']
 ]);
 ?>

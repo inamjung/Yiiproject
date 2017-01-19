@@ -116,6 +116,8 @@ $config = [
             'risk/*',
             'report/*',
             'users/*',
+            'patient/*',
+            
             'some-controller/some-action',   
         ]
     ],

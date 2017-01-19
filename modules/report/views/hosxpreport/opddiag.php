@@ -8,7 +8,11 @@ use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use kartik\widgets\Select2;
 use miloschuman\highcharts\Highcharts;
+
+$b = $dataProvider->getModels();
+
 ?>
+
 <?php 
     $form = ActiveForm::begin(['method'=>'get',
         'action'=> Url::to(['hosxpreport/opddiag'])
@@ -96,6 +100,10 @@ echo GridView::widget([
 ]);
 ?>
 
+<?php
+        echo "<div class='alert alert-success'></div>";
+      //return;  
+    ?>
 <?php
     echo Highcharts::widget([
    'options' => [

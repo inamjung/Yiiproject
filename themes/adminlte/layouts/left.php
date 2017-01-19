@@ -70,7 +70,7 @@
         <ul class="sidebar-menu">
                 <li class="treeview">
                     <a href="#">
-                        <i class="glyphicon glyphicon-cog"><span> ตั้งค่าระบบรายงานความเสี่ยง</span></i>
+                        <i class="glyphicon glyphicon-cog"><span> ตั้งค่าระบบความเสี่ยง</span></i>
                         <i class="fa pull-right fa-angle-down"></i>
                     </a>               
                 <ul class="treeview-menu">                    
@@ -126,7 +126,7 @@
         <ul class="sidebar-menu">
                 <li class="treeview">
                     <a href="#">
-                        <i class="glyphicon glyphicon-cog"><span> รายงานHOSxP</span></i>
+                        <i class="glyphicon glyphicon-cog"><span> รายงาน HOSxP</span></i>
                         <i class="fa pull-right fa-angle-down"></i>
                     </a>               
                 <ul class="treeview-menu">                    
@@ -142,20 +142,45 @@
                </li>    
             </ul>
         
-        <ul class="sidebar-menu">
-                <li class="treeview active">
-                    <a href="#">
-                        <i class="glyphicon glyphicon-cog"><span> บันทึกข้อมูลข้ามตาราง</span></i>
-                        <i class="fa pull-right fa-angle-down"></i>
-                    </a>               
-                <ul class="treeview-menu">                    
-                    <li><a href="<?php echo yii\helpers\Url::to(['/report/hosxpreport/ptname'])?>"> 
-                            <span><i class="fa fa-circle text-blue"></i> บันทึกข้อมูลข้มตาราง</span>                        
-                        </a>                        
-                    </li>                   
-                </ul>
-               </li>    
-            </ul>
+        
+<?= dmstr\widgets\Menu::widget(
+            [
+                'options' => ['class' => 'sidebar-menu'],
+                'items' => [
+                    //['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
+                    //['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
+                    //['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug']],
+                    //['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+                    [
+                        'label' => 'บันทึกข้อมูลข้ามตาราง',
+                        'icon' => 'glyphicon glyphicon-cog',
+                        'url' =>  '#',
+                        'items' => [
+                            //['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],
+                            //['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],
+                            [
+                                'label' => 'คิวรีข้อมูล',
+                                'icon' => 'fa fa-circle-o',
+                                'url' => '#',
+                                'items' => [
+                                    ['label' => 'คิวรีข้อมูล 1ตาราง', 'icon' => 'fa fa-circle-o', 'url' => ['/report/hosxpreport/ptname'],],
+                                    ['label' => 'คิวรีข้อมูล joinตาราง', 'icon' => 'fa fa-circle-o', 'url' => ['/report/hosxpreport/sqljoin'],],
+                                    [
+                                        'label' => 'ดูข้อมูลที่บันทึก',
+                                        'icon' => 'fa fa-circle-o',
+                                        'url' => '#',
+                                        'items' => [
+                                            ['label' => 'ดูข้อมูล 1ตาราง', 'icon' => 'fa fa-circle-o', 'url' => ['/patient/index'],],
+                                            ['label' => 'ดูข้อมูล joinตาราง', 'icon' => 'fa fa-circle-o', 'url' => ['/report/sqljoin/index'],],
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ]
+        ) ?>
 
     </section>
 </aside>
